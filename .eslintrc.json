@@ -1,0 +1,44 @@
+{
+  "root": true,
+  "extends": ["standard-with-typescript", "plugin:react/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["simple-import-sort"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "rules": {
+    // "@typescript-eslint/no-misused-promises": [
+    //   "error",
+    //   {
+    //     checksVoidReturn: false
+    //   }
+    // ],
+    "@typescript-eslint/no-confusing-void-expression": ["error", { "ignoreArrowShorthand": true }],
+    "@typescript-eslint/no-misused-promises": "off",
+    "quotes": ["error", "single"],
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off",
+    // "react/jsx-max-props-per-line": [1, { maximum: 1 }],
+    // "react/jsx-indent": [1, 2, { checkAttributes: true, indentLogicalExpressions: true }],
+    // "react/jsx-indent-props": [1, 2],
+    "react/no-unescaped-entities": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["react-native-gesture-handler"],
+          ["^react"],
+          ["@/(.*)"],
+          ["^@?\\w"],
+          ["src/(.*)"],
+          ["^[./]"]
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": ["src/generated/*", "babel.config.js"]
+}
