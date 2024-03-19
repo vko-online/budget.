@@ -4,7 +4,6 @@ import { type ColorSchemeName } from 'react-native'
 import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-// import * as ExpoNotifications from 'expo-notifications'
 import Colors from 'src/components/Colors'
 import useColorScheme from 'src/components/useColorScheme'
 import { type RootStackParamList } from 'src/navigation/types'
@@ -39,7 +38,7 @@ function RootNavigator (): JSX.Element {
     <Stack.Navigator initialRouteName="Dashboard"
 
       screenOptions={{ contentStyle: { backgroundColor: Colors[colorScheme].background } }}>
-      <Stack.Screen name='Dashboard' component={DashboardScreen} />
+      <Stack.Screen name='Dashboard' component={DashboardScreen} options={{ headerShown: false }} />
       <Stack.Screen name='Calendar' component={CalendarScreen} />
     </Stack.Navigator>
   )

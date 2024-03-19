@@ -1,16 +1,17 @@
 import type { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
-import { nanoid } from 'nanoid'
+import { getUnixTime } from 'date-fns'
+import { nanoid } from 'nanoid/non-secure'
 
-interface CalendarData {
+export interface CalendarData {
   id: string
   title?: string
   amount: number
   category: string
-  date: Date
+  date: number
 }
 
-interface CalendarInput {
+export interface CalendarInput {
   title?: string
   amount: number
   category: string
@@ -23,14 +24,14 @@ export interface CalendarState {
 const initialState: CalendarState = { data: [] }
 
 const calendarSlice = createSlice({
-  name: 'filter',
+  name: 'calendar',
   initialState,
   reducers: {
     addEntry (state: CalendarState, action: PayloadAction<CalendarInput>) {
       state.data = [...state.data, {
         ...action.payload,
         id: nanoid(10),
-        date: new Date()
+        date: getUnixTime(new Date())
       }]
     },
     removeEntry (state: CalendarState, action: PayloadAction<string>) {
