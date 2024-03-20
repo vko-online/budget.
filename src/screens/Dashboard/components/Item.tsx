@@ -101,10 +101,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
+    paddingVertical: 5
   },
   header: {
-    fontSize: 22
+    fontSize: 26
   },
   amountSum: {
     fontSize: 18,

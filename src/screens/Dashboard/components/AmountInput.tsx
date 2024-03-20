@@ -49,6 +49,16 @@ export default function AmountInput ({ onSubmit }: Props): JSX.Element {
     setCategory('')
   }, [onSubmit, amount, category, title, setAmount, setTitle, setCategory])
 
+  const sortedCategories = categories.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1
+    }
+    if (a.title > b.title) {
+      return 1
+    }
+    return 0
+  })
+
   return (
     <KeyboardAvoidingView behavior='position'>
       <View style={[styles.container, { shadowColor }]} darkColor={Colors.light.background} lightColor={Colors.dark.background}>
@@ -71,7 +81,7 @@ export default function AmountInput ({ onSubmit }: Props): JSX.Element {
             setCategory(value as string)
             setTitle(value as string)
           }}
-          items={categories.map(v => ({
+          items={sortedCategories.map(v => ({
             label: `${v.icon} ${v.title}`,
             value: v.title,
             inputLabel: v.icon

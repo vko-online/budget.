@@ -15,8 +15,7 @@ export default function useCachedResources (): boolean {
 
         // Load fonts
         await Font.loadAsync({
-          ...Ionicons.font,
-          'open-sans': require('../assets/fonts/OpenSans.ttf')
+          ...Ionicons.font
         })
       } catch (e) {
         // We might want to provide this error information to an error reporting service
