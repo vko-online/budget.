@@ -57,11 +57,12 @@ export default ({
     appDispatch(addEntry(input))
   }, [appDispatch])
 
+  const sorted = grouped.sort((a, b) => b.date - a.date)
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <SectionList
-        // sections={DATA}
-        sections={grouped}
+        sections={sorted}
         contentContainerStyle={{ flex: 1 }}
         keyExtractor={item => item.id}
         ListEmptyComponent={(
